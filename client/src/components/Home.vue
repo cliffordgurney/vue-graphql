@@ -31,10 +31,14 @@ export default {
           }
         }
       `,
-      result({data, loading}) {
+      result({data, loading, networkStatus}) {
         if(!loading){
           this.posts = data.getPosts
+          console.log('networkStatus', networkStatus)
         }
+      },
+      error(err) {
+        console.error(err)
       }
     }
   }
